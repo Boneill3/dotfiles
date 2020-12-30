@@ -1,0 +1,10 @@
+[user]
+	name = Brian ONeill
+	email = Boneill3@users.noreply.github.com
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[core]
+	excludesfile = /Users/brianoneill/.gitignore_global
