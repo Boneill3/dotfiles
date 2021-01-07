@@ -114,9 +114,12 @@ source $ZSH/oh-my-zsh.sh
 export PATH="/usr/local/sbin:$PATH"
 
 
-#Python related
+# Python related
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
 export PATH="/usr/local/opt/sphinx-doc/bin:$PATH"
+
+# vi key bindings
+bindkey -v
