@@ -13,6 +13,8 @@ Plugin 'VundleVim/Vundle.vim'
 "Plugin 'scrooloose/syntastic' "syntax highlighting
 "Plugin 'octol/vim-cpp-enhanced-highlight' "cpp enhanced syntax highlighting
 Plugin 'vim-airline/vim-airline' "Footer bar
+Plugin 'SirVer/ultisnips' "auto complete
+Plugin 'honza/vim-snippets' "auto complete
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
@@ -21,6 +23,20 @@ let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
 let g:cpp_posix_standard = 1
+
+"Snippits settings
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+"Compile latex using latexmk with control-T
+autocmd FileType tex nmap <buffer> <C-T> :!latexmk -pdf %<CR>
+"Open file in Skim with Shift T
+autocmd FileType tex nmap <buffer> T :!open -a Skim %<.pdf %<.pdf<CR><CR>
+
 
 
 filetype indent plugin on
@@ -49,6 +65,8 @@ set tabstop=2
 set expandtab
 set smarttab
 set smartindent
+
+set mouse=a
 
 " save on refocus
 :au FocusLost * :wa " will complain on untitled and read-only buffers
