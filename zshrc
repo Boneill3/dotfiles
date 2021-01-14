@@ -121,5 +121,6 @@ fi
 
 export PATH="/usr/local/opt/sphinx-doc/bin:$PATH"
 
-# vi key bindings
-bindkey -v
+# key bindings
+bindkey -v #vim key bindings
+bindkey '^R' history-incremental-search-backward #cntrl-R search
