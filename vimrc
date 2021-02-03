@@ -33,7 +33,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 
 "Compile latex using latexmk with control-T
-autocmd FileType tex nmap <buffer> <C-T> :!latexmk -pdf %<CR>
+autocmd FileType tex nmap <buffer> <C-T> :!latexmk -shell-escape -pdf %<CR>
 "Open file in Skim with Shift T
 autocmd FileType tex nmap <buffer> T :!open -a Skim %<.pdf %<.pdf<CR><CR>
 
