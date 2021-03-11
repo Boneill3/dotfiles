@@ -126,4 +126,6 @@ bindkey -v #vim key bindings
 bindkey '^R' history-incremental-search-backward #cntrl-R search
 
 # Aliases
-alias ls="exa"
+alias ls="exa --group-directories-first"
+alias la="exa -a"
+alias ll="exa --git -l"
