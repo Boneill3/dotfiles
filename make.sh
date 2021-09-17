@@ -5,13 +5,22 @@
 # Copied from http://blog.smalleycreative.com/tutorials/using-git-and-github-to-manage-your-dotfiles/
 ############################
 
-########## Variables
-
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
 files="vimrc zshrc gitconfig"    # list of files/folders to symlink in homedir
 
-##########
+case "$OSTYPE" in
+  darwin*)
+    dir=$dir/darwin
+    ;;
+  linux*)
+    dir=$dir/linux
+    ;;
+  *)
+    echo "OS NOT DETECTED"
+    exit 0
+    ;;
+esac
 
 # create dotfiles_old in homedir
 echo "Creating $olddir for backup of any existing dotfiles in ~"
@@ -30,3 +39,5 @@ for file in $files; do
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
 done
+
+"$dir/install.sh"
