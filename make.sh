@@ -7,7 +7,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="vimrc zshrc gitconfig"    # list of files/folders to symlink in homedir
+files="vimrc zshrc gitconfig p10k.zsh"    # list of files/folders to symlink in homedir
 
 case "$OSTYPE" in
   darwin*)
@@ -21,6 +21,8 @@ case "$OSTYPE" in
     exit 0
     ;;
 esac
+
+"$dir/install.sh"
 
 # create dotfiles_old in homedir
 echo "Creating $olddir for backup of any existing dotfiles in ~"
@@ -40,4 +42,6 @@ for file in $files; do
     ln -s $dir/$file ~/.$file
 done
 
-"$dir/install.sh"
+# install vundle plugins
+vim +PluginInstall +qall
+
